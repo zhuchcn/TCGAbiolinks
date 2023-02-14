@@ -353,7 +353,7 @@ GDCclientInstall <- function(){
     if (is.mac()) bin <- bin[grep("client*.*OSX", bin)]
     if (is.linux()) bin <- bin[grep("client*.*Ubuntu", bin)]
     if (is.windows()) mode <- "wb" else  mode <- "w"
-    bin <- paste0("https://gdc.cancer.gov/system/", bin)
+    bin <- paste0("https://gdc.cancer.gov/", bin)
     download(bin, basename(bin), mode = mode)
     unzip(basename(bin))
     Sys.chmod("gdc-client")
