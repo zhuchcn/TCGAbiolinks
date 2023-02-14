@@ -351,13 +351,7 @@ GDCclientInstall <- function(){
     bin <- links[grep("public.*zip",links)]
     if (is.windows()) bin <- bin[grep("client*.*windows", bin,ignore.case = TRUE)]
     if (is.mac()) bin <- bin[grep("client*.*OSX", bin)]
-    if (is.linux()) {
-        if (grepl("ubuntu",Sys.info()["version"],ignore.case = TRUE)){
-            bin <- bin[grep("client*.*Ubuntu", bin)]
-        } else {
-            bin <- bin[grep("client*.*Cent", bin)]
-        }
-    }
+    if (is.linux()) bin <- bin[grep("client*.*Ubuntu", bin)]
     if (is.windows()) mode <- "wb" else  mode <- "w"
     download(bin, basename(bin), mode = mode)
     unzip(basename(bin))
